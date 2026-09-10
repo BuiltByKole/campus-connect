@@ -2,6 +2,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { useAuthStore } from './store/authStore'
 import { useEffect } from 'react'
 import { routeTree } from './routes'
+import { Analytics } from '@vercel/analytics/react'
 import './styles/globals.css'
 
 const router = createRouter({ routeTree })
@@ -32,5 +33,10 @@ export default function App() {
     )
   }
 
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Analytics />
+    </>
+  )
 }
